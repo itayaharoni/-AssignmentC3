@@ -1,6 +1,5 @@
 CC=gcc
 FLAGS= -Wall -g 
-AR=ar
 OBJECTS_ISORT= isort.o 
 OBJECTS_TXTFIND= txtfind.o
 OBJECTS_MAIN_ISORT= isort.c
@@ -19,4 +18,4 @@ txtfind.o: $(OBJECTS_MAIN_TXTFIND)
 	$(CC) $(FLAGS) -c $(OBJECTS_MAIN_TXTFIND)
 
 clean:
-	rm -f *.a *.o txtfind isort
+	rm -f *.o txtfind isort
