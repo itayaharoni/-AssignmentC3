@@ -29,7 +29,11 @@ int main(){
     int arr[N]={0};
     for (size_t i = 0; i < N; i++)
     {
-        scanf("%d",(arr+i));
+               if(i<N-1){
+        printf("%d,",*(arr+i));
+        }else{
+        printf("%d\n",*(arr+i));
+        }
     }
     insertion_sort(arr,N);
     for (size_t i = 0; i < N; i++)
