@@ -11,7 +11,7 @@ int getlines(char s[]){
 }
 int getword(char w[]){
     int i=0;
-    while((w[i]>='a'&&w[i]<='z')||((w[i]>='A'&&w[i]<='Z'))){
+    while(w[i]!=' ' && w[i]!='\t' && w[i] !='\n'&&w[i]!='\r'){
        i++; 
     }
     return i;
@@ -71,7 +71,7 @@ void print_lines(char * str){
             }
         }
         int j=0;
-        while(j<i&&((!(line[j]>='a'&&line[j]<='z'))&&(!(line[j]>='A'&&line[j]<='Z')))){
+        while(j<i&&(line[j]==' '||line[j]=='\n'||line[j]=='\t'||line[j]=='\r')){
             j++;
         }
         while(j<i){
@@ -83,7 +83,7 @@ void print_lines(char * str){
             }
             w[k]='\0';
             j+=k;
-            while(j<i&&((!(line[j]>='a'&&line[j]<='z'))&&(!(line[j]>='A'&&line[j]<='Z'))))
+            while(j<i&&(line[j]==' '||line[j]=='\n'||line[j]=='\t'||line[j]=='\r'))
             {
             j++;
             }
@@ -106,7 +106,7 @@ void print_similar_words(char * str){
         char line[LINE]={0};
         int i=0;
         c='\0';
-        while(c!='\n'){
+        while(c!='\n'&&c!='\r'){
             int n=scanf("%c",&c);
             if(n==EOF){
                 b=1;
@@ -117,7 +117,7 @@ void print_similar_words(char * str){
             }
         }
         int j=0;
-        while(j<i&&((!(line[j]>='a'&&line[j]<='z'))&&(!(line[j]>='A'&&line[j]<='Z')))){
+        while(j<i&&(line[j]==' '||line[j]=='\n'||line[j]=='\t'||line[j]=='\r')){
             j++;
         }
         while(j<i){
@@ -129,7 +129,7 @@ void print_similar_words(char * str){
             }
             j+=k;
             w[w_size]='\0';
-            while(j<i&&((!(line[j]>='a'&&line[j]<='z'))&&(!(line[j]>='A'&&line[j]<='Z'))))
+            while(j<i&&(line[j]==' '||line[j]=='\n'||line[j]=='\t'||line[j]=='\r'))
             {
             j++;
             }
@@ -148,12 +148,12 @@ int main(){
     char c='\0';
     char line[LINE]={0};
     int i=0;
-    while(c!='\n'){
+    while(c!='\n'&&c!='\r'){
         scanf("%c",&c);
         line[i++]=c;
     }
     int j=0;
-        while(j<i&&(line[j]=='\t'||line[j]==' '||line[j]=='\n')){
+        while(j<i&&(line[j]=='\t'||line[j]==' '||line[j]=='\n'||line[j]=='\r')){
         j++;
     }
     char w[WORD]={0};
@@ -164,7 +164,7 @@ int main(){
         w[k]=line[j+k];
     }
     j+=k;
-        while(j<i&&(line[j]=='\t'||line[j]==' '||line[j]=='\n')){
+        while(j<i&&(line[j]=='\t'||line[j]==' '||line[j]=='\n'||line[j]=='\r')){
         j++;
     }
     c=line[j];
